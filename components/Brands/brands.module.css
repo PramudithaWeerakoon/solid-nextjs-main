@@ -1,0 +1,44 @@
+/* Animation for brand logos scrolling continuously to the left */
+.scrollContainer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+.scrollTrack {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 200%; /* Double the width to allow for the animation */
+  animation: scroll 20s linear infinite;
+}
+
+.scrollItem {
+  flex: 0 0 calc(100% / 12); /* Each item takes 1/12 of the track (which is 200% wide) - so 6 logos per row */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+/* Pause animation on hover */
+.scrollTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Move by exactly half the width */
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .scrollTrack {
+    animation-duration: 15s; /* Faster on mobile */
+  }
+}
